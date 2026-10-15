@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siddhanth Hariramani - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:  #D4903A;
+      --dark:  #0d1e30;
+      --body:  #333333;
+      --muted: #666666;
+      --light: #f8f7f4;
+      --line:  #e5e2dd;
+    }
+
+    html, body {
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 10pt;
+      color: var(--body);
+      background: #d8d8d8;
+      line-height: 1.6;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── SCREEN: download bar ── */
+    .download-bar {
+      background: var(--dark);
+      color: #fff;
+      text-align: center;
+      padding: 12px 16px;
+      font-size: 13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .download-bar a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    @media print { .download-bar { display: none !important; } }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fff;
+      margin: 24px auto;
+      display: flex;
+      flex-direction: column;
+    }
+    @media print {
+      html, body { background: #fff; }
+      .page {
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+        page-break-after: always;
+        display: flex;
+        flex-direction: column;
+      }
+      .page:last-of-type { page-break-after: auto; }
+    }
+
+    /* ── HEADER ── */
+    .rh {
+      background: var(--dark);
+      padding: 26px 36px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      flex-shrink: 0;
+    }
+    .rh-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 28pt;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.4px;
+    }
+    .rh-name em { font-style: italic; color: var(--gold); }
+    .rh-title {
+      font-size: 9pt;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+    }
+    .rh-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+      padding-top: 4px;
+      flex-shrink: 0;
+    }
+    .rh-right span,
+    .rh-right a {
+      font-size: 8.5pt;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── GOLD BAR ── */
+    .gold-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold) 0%, #F3AF63 60%, transparent 100%);
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── BODY ── */
+    .rb {
+      padding: 22px 36px 26px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── SUMMARY ── */
+    .summary {
+      border-left: 3px solid var(--gold);
+      padding: 12px 16px;
+      background: var(--light);
+      margin-bottom: 18px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      flex-shrink: 0;
+    }
+    .summary p {
+      font-size: 9.5pt;
+      color: #444;
+      line-height: 1.65;
+    }
+
+    /* ── METRICS BAR ── */
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .metric {
+      background: #fff;
+      text-align: center;
+      padding: 10px 8px;
+    }
+    .metric-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17pt;
+      color: var(--gold);
+      line-height: 1;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .metric-label {
+      font-size: 7.5pt;
+      color: var(--muted);
+      margin-top: 3px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── SECTION ── */
+    .sec { margin-bottom: 16px; }
+
+    .sec-title {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      page-break-after: avoid;
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sec-title::before {
+      content: '';
+      width: 14px;
+      height: 2px;
+      background: var(--gold);
+      display: inline-block;
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── JOB ── */
+    .job {
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f0ede8;
+    }
+    .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .jh {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+    .j-co {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .j-period {
+      font-size: 8.5pt;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 500;
+    }
+    .j-role {
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--gold);
+      font-style: italic;
+      margin-bottom: 7px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .j-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .j-bullets li {
+      font-size: 9pt;
+      color: #444;
+      padding-left: 13px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .j-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 8pt;
+      top: 2px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    strong { color: var(--dark); }
+
+    /* ── BOTTOM TWO-COL ── */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 32px;
+      flex: 1;
+    }
+
+    /* ── SKILLS ── */
+    .skill-rows { display: flex; flex-direction: column; gap: 10px; }
+    .skill-row  { display: flex; gap: 10px; align-items: flex-start; }
+    .sk-cat     { font-size: 8.5pt; font-weight: 700; color: var(--dark); min-width: 90px; flex-shrink: 0; padding-top: 1px; }
+    .sk-list    { font-size: 8.5pt; color: #555; line-height: 1.6; }
+
+    /* ── TOOLS ── */
+    .tools-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tool-tag {
+      background: var(--light);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 3px 9px;
+      font-size: 8pt;
+      color: #555;
+      font-weight: 500;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+    .edu-deg { font-size: 10pt; font-weight: 700; color: var(--dark); }
+    .edu-uni { font-size: 8.5pt; color: var(--muted); margin-top: 3px; }
+    .edu-meta { font-size: 8.5pt; color: var(--gold); font-weight: 600; white-space: nowrap; }
+
+    /* ── FOOTER ── */
+    .rf {
+      border-top: 1px solid var(--line);
+      padding: 9px 36px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8pt;
+      color: var(--muted);
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .rf-dot {
+      display: inline-block;
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin: 0 5px;
+      vertical-align: middle;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── ACHIEVEMENTS GRID (page 2) ── */
+    .achiev-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 4px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .achiev-card {
+      background: var(--light);
+      border-left: 3px solid var(--gold);
+      padding: 10px 12px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .achiev-card .ac-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 16pt;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .achiev-card .ac-text {
+      font-size: 8pt;
+      color: #555;
+      margin-top: 3px;
+      line-height: 1.45;
+    }
+
+  </style>
+  <script>
+    if (new URLSearchParams(window.location.search).get('download') === '1') {
+      window.addEventListener('load', () => setTimeout(() => window.print(), 800));
+    }
+  </script>
+</head>
+<body>
+
+<div class="download-bar">
+  Siddhanth Hariramani &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="javascript:window.print()">⬇ Save as PDF</a>
+  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="index.html">← View Landing Page</a>
+</div>
+
+
+<!-- ══════════════════════ PAGE 1 ══════════════════════ -->
+<div class="page">
+
+  <div class="rh">
+    <div class="rh-left">
+      <div class="rh-name">Siddhanth <em>Hariramani</em></div>
+      <div class="rh-title">VP Marketing &nbsp;·&nbsp; Brand &amp; Growth &nbsp;·&nbsp; Digital P&L Owner &nbsp;·&nbsp; 13+ Years</div>
+    </div>
+    <div class="rh-right">
+      <a href="mailto:sid.hariramani7@gmail.com">sid.hariramani7@gmail.com</a>
+      <a href="tel:+919611199799">+91 96111 99799</a>
+      <a href="https://www.linkedin.com/in/siddhanth-hariramani-7b813b1b9/">linkedin.com/in/siddhanth-hariramani-7b813b1b9</a>
+      <span>Open to VP Marketing &amp; Growth Head Roles · Bangalore</span>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="rb">
+
+    <div class="summary">
+      <p>VP Marketing and digital P&L owner with 13+ years building brands and growth engines from zero, across agencies, funded startups, and founder-led businesses. At Paterson, built the entire digital ecosystem from scratch: <strong>10,000+ social followers, 9.5 crore+ cross-platform impressions in Year 1, 500+ leads/month at ₹80 CPL</strong> (industry average: ₹300–800+). Founded two companies, one acquired, generating <strong>&#8377;9Cr+ in total revenue</strong>. Built BuzzinUp to <strong>10,000+ members</strong> and 5,000 tickets in 6 months. Deep expertise across the full funnel: brand strategy, performance marketing, community, lifecycle, and owned media. Systems thinker, team builder, and daily AI practitioner.</p>
+    </div>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-num">13+</div>
+        <div class="metric-label">Years in Marketing</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">&#8377;9Cr+</div>
+        <div class="metric-label">Revenue Generated</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">500+</div>
+        <div class="metric-label">Leads/Month · ₹80 CPL</div>
+      </div>
+      <div class="metric">
+        <div class="metric-num">10K+</div>
+        <div class="metric-label">Community Members Built</div>
+      </div>
+    </div>
+
+    <div class="sec" style="flex:1;">
+      <div class="sec-title">Work Experience</div>
+
+      <div class="job">
+        <div class="jh">
+          <span class="j-co">Paterson</span>
+          <span class="j-period">Jun 2025 - Present</span>
+        </div>
+        <div class="j-role">Head of Marketing &amp; Communications</div>
+        <ul class="j-bullets">
+          <li>Built the full digital growth engine from zero: <strong>10,000+ social followers</strong>, <strong>9.5 crore+ cross-platform impressions in Year 1</strong>, <strong>500+ leads/month</strong> at <strong>₹80 CPL</strong> (vs. ₹300–800+ industry average for financial services).</li>
+          <li>Created and front two owned media IPs: <strong>Taking Stock</strong> (podcast: 55 episodes, 5,000+ subscribers, 1,500+ watch hours/month) and <strong>Take One</strong> (daily news show: ~2,000 views/episode); manages <strong>5,000+ email subscribers</strong> at 18–20% open rate.</li>
+          <li>Shipped three production tools using Claude Code: an <strong>AI research blog pipeline</strong> (1,000+ articles published to date, ~5/day, auto-distributed to website + sales/RM team), a <strong>live IPO dashboard</strong> (patersoncapital.com/ipo), and a <strong>hiring engine</strong> (patersoncapital.com/careers).</li>
+          <li>Led complete brand revamp: logo, visual identity, design language, and full brandbook authored from scratch.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="jh">
+          <span class="j-co">Social Panga</span>
+          <span class="j-period">Nov 2024 - May 2025</span>
+        </div>
+        <div class="j-role">Associate Director - Brand Solutions</div>
+        <ul class="j-bullets">
+          <li>Managed a client portfolio of <strong>&#8377;45L/month</strong> across 9 national brands - Himalaya Wellness, TechnoSport, Lifestyle, South Indian Bank, and Tally Solutions.</li>
+          <li>Led and mentored a team of 7 client servicing professionals delivering integrated brand and performance campaigns across channels.</li>
+          <li>Drove account expansion through strategic upselling and cross-selling, growing wallet share within existing accounts quarter on quarter.</li>
+          <li>Owned quarterly brand health reviews, competitive benchmarking, and annual strategic planning for key accounts.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="jh">
+          <span class="j-co">Dudes With Ideas</span>
+          <span class="j-period">Jul 2021 - Nov 2024</span>
+        </div>
+        <div class="j-role">Founder &amp; Creative Head</div>
+        <ul class="j-bullets">
+          <li>Built and scaled a lean creative agency from zero, generating <strong>₹3.5–4 crore in total revenue</strong> over 3 years, with a <strong>&#8377;15L/month</strong> retainer portfolio at peak.</li>
+          <li>Built <strong>BuzzinUp</strong> from zero: 10,000+ community members, 5,000 tickets sold in 6 months, large-scale events generating <strong>₹25L per event</strong> in revenue; owned full P&L end-to-end.</li>
+          <li>Led end-to-end client delivery for Paytm, Adidas Running, Sunrisers Hyderabad, Corner House, Rohan Bopanna Tennis Academy, and Six Cricket Academy.</li>
+          <li>Organised large-scale experiential campaigns with Kingfisher and Bira 91: music festivals, beer festivals, and pub crawls, driving brand affinity and community growth.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="jh">
+          <span class="j-co">Echobooom Management &amp; Solutions</span>
+          <span class="j-period">Jan 2020 - Jun 2021</span>
+        </div>
+        <div class="j-role">Marketing Director</div>
+        <ul class="j-bullets">
+          <li>Post-acquisition of Absolution, took senior leadership and ran the entire digital marketing and social media vertical for the group.</li>
+          <li>Owned the GTM strategy for UnoGreen NFC Cards - positioning, content strategy, and influencer partnerships from day one through launch.</li>
+          <li>Led a cross-functional creative team of 20+: copywriters, designers, photographers, and performance marketers across multiple campaigns.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div><!-- /rb -->
+
+  <div class="rf">
+    <span>Siddhanth Hariramani <span class="rf-dot"></span> sid.hariramani7@gmail.com <span class="rf-dot"></span> +91 96111 99799</span>
+    <span>Page 1 of 2</span>
+  </div>
+
+</div><!-- /page 1 -->
+
+
+
+<!-- ══════════════════════ PAGE 2 ══════════════════════ -->
+<div class="page">
+
+  <div class="rh">
+    <div class="rh-left">
+      <div class="rh-name">Siddhanth <em>Hariramani</em></div>
+      <div class="rh-title">VP Marketing &nbsp;·&nbsp; Brand &amp; Growth &nbsp;·&nbsp; Digital P&L Owner &nbsp;·&nbsp; 13+ Years</div>
+    </div>
+    <div class="rh-right">
+      <a href="mailto:sid.hariramani7@gmail.com">sid.hariramani7@gmail.com</a>
+      <a href="tel:+919611199799">+91 96111 99799</a>
+      <a href="https://www.linkedin.com/in/siddhanth-hariramani-7b813b1b9/">linkedin.com/in/siddhanth-hariramani-7b813b1b9</a>
+      <span>Open to VP Marketing &amp; Growth Head Roles · Bangalore</span>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+
+  <div class="rb">
+
+    <div class="sec">
+      <div class="sec-title">Work Experience <span style="font-size:7pt;letter-spacing:1px;opacity:0.65;">(continued)</span></div>
+
+      <div class="job">
+        <div class="jh">
+          <span class="j-co">Absolution</span>
+          <span class="j-period">Jan 2013 - Dec 2019</span>
+        </div>
+        <div class="j-role">Founder &amp; Chief Creative Officer</div>
+        <ul class="j-bullets">
+          <li>Founded and scaled Absolution over 7 years - owned the full revenue number end-to-end across two verticals: brand representation and creative services. Exited via acquisition in 2019.</li>
+          <li>Built and managed <strong>200 brand representatives</strong> across Bangalore, Mumbai, Kolkata, Goa, and Guwahati - generating <strong>&#8377;5 crores/annum</strong> in client revenue.</li>
+          <li>Managed the sales team at the conversion level: monitored call-to-payment rates, sharpened pitch scripts, and fixed drop-off points to consistently improve CAC and conversion rate.</li>
+          <li>Owned client relationships, creative direction, pricing, and P&amp;L across the full business - acting as sole revenue owner and decision maker for 7 years.</li>
+          <li>Built a brand that was acquired based on its systems, team, and consistent revenue track record - the strongest validation of sustainable growth architecture.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-title">Career Highlights</div>
+      <div class="achiev-grid">
+        <div class="achiev-card">
+          <div class="ac-num">&#8377;80</div>
+          <div class="ac-text">CPL achieved at Paterson, vs. ₹300–800+ industry average for financial services</div>
+        </div>
+        <div class="achiev-card">
+          <div class="ac-num">1,000+</div>
+          <div class="ac-text">AI-generated articles published via automated blog pipeline built with Claude Code</div>
+        </div>
+        <div class="achiev-card">
+          <div class="ac-num">Acquired</div>
+          <div class="ac-text">Absolution was acquired by Echobooom after 7 years of sustained revenue growth and ₹5Cr/year in revenue</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-grid">
+
+      <!-- LEFT: Core Competencies -->
+      <div class="sec">
+        <div class="sec-title">Core Competencies</div>
+        <div class="skill-rows">
+          <div class="skill-row">
+            <span class="sk-cat">Brand &amp; Strategy</span>
+            <span class="sk-list">Brand Architecture, GTM Strategy, Positioning &amp; Messaging, Campaign Management, Brand Activation, Thought Leadership</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-cat">Performance</span>
+            <span class="sk-list">Meta Ads, Google Ads, SEO, Full-Funnel Ownership, CAC Optimisation, Conversion Rate Optimisation, Attribution Modelling, Revenue Ownership</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-cat">Lifecycle</span>
+            <span class="sk-list">D2C Marketing, Email, WhatsApp, Influencer Partnerships, Community Building, Content Systems, Experiential Marketing</span>
+          </div>
+          <div class="skill-row">
+            <span class="sk-cat">Leadership</span>
+            <span class="sk-list">P&amp;L Ownership, Team Building, Agency Management, Systems Thinking, AI-Powered Workflows, Cross-functional Teams</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Tools + Education -->
+      <div>
+        <div class="sec">
+          <div class="sec-title">Tools &amp; Technology</div>
+          <div class="tools-wrap">
+            <span class="tool-tag">Meta Ads Manager</span>
+            <span class="tool-tag">Google Ads</span>
+            <span class="tool-tag">Meta Business Suite</span>
+            <span class="tool-tag">MailChimp</span>
+            <span class="tool-tag">WATI</span>
+            <span class="tool-tag">Supermetrics</span>
+            <span class="tool-tag">Claude Code</span>
+            <span class="tool-tag">OpenSEO</span>
+            <span class="tool-tag">Google Analytics</span>
+            <span class="tool-tag">Google Search Console</span>
+            <span class="tool-tag">Google Tag Manager</span>
+          </div>
+        </div>
+
+        <div class="sec" style="margin-top: 20px;">
+          <div class="sec-title">Education</div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-deg">BA (Hons) Management Studies</div>
+              <div class="edu-uni">University of Nottingham, United Kingdom</div>
+            </div>
+            <div class="edu-meta">2009 – 2012 &nbsp;·&nbsp; 2:1</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /bottom-grid -->
+
+  </div><!-- /rb -->
+
+  <div class="rf">
+    <span>Siddhanth Hariramani <span class="rf-dot"></span> sid.hariramani7@gmail.com <span class="rf-dot"></span> +91 96111 99799</span>
+    <span>linkedin.com/in/siddhanth-hariramani-7b813b1b9 <span class="rf-dot"></span> Page 2 of 2</span>
+  </div>
+
+</div><!-- /page 2 -->
+
+</body>
+</html>
